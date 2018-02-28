@@ -18,27 +18,32 @@ public class Flamingo extends Actor
     GreenfootImage[] animationLeft = new GreenfootImage[36];
     private boolean isRight;
     private boolean isWalking;
+    private int count = 0;
+    
+
+    
     public Flamingo()
     {
-          
-           for(int i = 1; i <= 36; ++i)
-           {
-               animationRight[i-1] = new GreenfootImage("FlamingoRight/Flamingo"+ i +".png");
-               animationLeft[i-1] = new GreenfootImage("FlamingoLeft/Flamingo"+ i +".png");
-               animationRight[i-1].scale(90,150);
-               animationLeft[i-1].scale(90,150);
-           }
-           setImage(animationRight[0]);
-           isRight = true;
-           isWalking = false;
+       
+        for(int i = 1; i <= 36; ++i)
+        {
+            animationRight[i-1] = new GreenfootImage("FlamingoRight/Flamingo"+ i +".png");
+            animationLeft[i-1] = new GreenfootImage("FlamingoLeft/Flamingo"+ i +".png");
+            animationRight[i-1].scale(90,150);
+            animationLeft[i-1].scale(90,150);
+        }
+        setImage(animationRight[0]);
+        isRight = true;
+        isWalking = false;
     }
-    
-    
+
     public void act() 
     {
         checkKey();
+        
+        checkHeart();
     }
-    
+
     public void checkKey()
     {
         isWalking = false;
@@ -53,9 +58,9 @@ public class Flamingo extends Actor
                 frameRight = 0;
             }
         }else{
-          frameRight = 0;
+            frameRight = 0;
         }
-       
+
         if(Greenfoot.isKeyDown("left"))
         {
             moveLeft();
@@ -67,21 +72,20 @@ public class Flamingo extends Actor
                 frameLeft = 0;
             }
         }else{
-        frameLeft = 0;
+            frameLeft = 0;
         }
-        
+
         if(!isWalking){
             if(isRight){
-                 setImage(animationRight[0]);
+                setImage(animationRight[0]);
             }else{
-                 setImage(animationLeft[0]);
+                setImage(animationLeft[0]);
             }
         }
+
         
-        
-        
-   }
-    
+    }
+
     public void moveRight()
     {
         if(Greenfoot.isKeyDown("shift"))
@@ -89,9 +93,9 @@ public class Flamingo extends Actor
             setLocation(getX()+ 9, getY());
         }
         else
-        setLocation(getX()+ 5, getY());
+            setLocation(getX()+ 5, getY());
     }
-    
+
     public void moveLeft()
     {
         if(Greenfoot.isKeyDown("shift"))
@@ -99,9 +103,9 @@ public class Flamingo extends Actor
             setLocation(getX() - 9, getY());
         }
         else
-        setLocation(getX()- 5, getY());
+            setLocation(getX()- 5, getY());
     }
-    
+
     public void animateRight(){
         for(int i = 1; i < 36; i++){
             if(frameRight==i)
@@ -110,7 +114,7 @@ public class Flamingo extends Actor
             }
         }
     }
-    
+
     public void animateLeft(){
         for(int i = 1; i < 36; i++){
             if(frameLeft == i){
@@ -118,4 +122,13 @@ public class Flamingo extends Actor
             }
         }
     }
+
+    public void checkHeart(){
+        MyWorld world = (MyWorld)getWorld();
+        //world.removeHeart();
+        
+    }
+    
+
+
 }

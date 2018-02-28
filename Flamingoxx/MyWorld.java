@@ -14,16 +14,18 @@ public class MyWorld extends World
      * 
      */
     private Egg egg;
+    private Bomb bomb;
+    Flamingo flamingo = new Flamingo();
     Heart heart1 = new Heart();
     Heart heart2 = new Heart();
     Heart heart3 = new Heart();
     GreenfootImage blankHeart = new GreenfootImage("Heart/Miniheart2.png");
-    private int count;
+    GreenfootImage bang = new GreenfootImage("Effect/Bang.png");
+    private int count = 3;
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(700, 500, 1); 
-        count = 3;
         GreenfootImage bg = new GreenfootImage("Background/Forest.png");
         bg.scale(700,500);
         setBackground(bg);
@@ -36,7 +38,6 @@ public class MyWorld extends World
      */
     private void prepare()
     {
-        Flamingo flamingo = new Flamingo();
         addObject(flamingo,60,400);
         addObject(heart1, 40, 40);
         addObject(heart2, 89, 40);
@@ -45,35 +46,43 @@ public class MyWorld extends World
 
     public void act(){
         generateEgg();
+        generateBomb();
     }
 
     public void generateEgg()
     {
         if(Greenfoot.getRandomNumber(500)<10){
             if(numberOfObjects() <= 7)
-            addObject(new Egg() , Greenfoot.getRandomNumber(680) + 10, 50);
+                addObject(new Egg() , Greenfoot.getRandomNumber(680) + 10, 50);
+        }
+    }
+
+    public void generateBomb(){
+        if(numberOfObjects() <= 5){
+            addObject(new Bomb(), Greenfoot.getRandomNumber(680) + 10, 50);
         }
     }
 
     public void removeHeart()
     {
-            if(count == 3){
-                heart3.setImage(blankHeart);
-                count--;
-            }
-            else if(count == 2){
-                heart2.setImage(blankHeart);
-                count--;
-            }
-            else if(count == 1){
-                heart1.setImage(blankHeart);
-                count--;
-            }
-            else
-            {
-                
-            }
-        
+        if(count == 3){
+            heart3.setImage(blankHeart);
+            count--;
+        }
+        else if(count == 2){
+            heart2.setImage(blankHeart);
+            count--;
+        }
+        else if(count == 1){
+            heart1.setImage(blankHeart);
+            count--;
+            
+        }
+        else
+        {
+
+        }
+
     }
 
 }
