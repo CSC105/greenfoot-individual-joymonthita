@@ -25,7 +25,7 @@ public class Bomb extends Actor
     public Bomb(){
         banged = false;
         myImage.scale(55,55);
-        bang.scale(100,100);
+        bang.scale(110,110);
     }
 
     public void moveDown(){

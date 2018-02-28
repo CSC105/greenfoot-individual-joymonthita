@@ -25,8 +25,26 @@ public class Egg extends Actor
 
     public void moveDown(){
         setLocation(getX(), getY() + 3);
-        if(getY() >= 490){
+        if(isTouching(Flamingo.class))
+        {
+            myImage.setTransparency(0);
+        }
+
+        if(getY() >= 490)
+        {
             getWorld().removeObject(this);
+        }
+    }
+
+    public void checkTouch(){
+        MyWorld world = (MyWorld)getWorld();
+        Actor flamingo = (Actor)world.getObjects(Flamingo.class).get(0);
+        if(Math.abs(flamingo.getX() - getX()) <= 30)
+        {
+            if(Math.abs(flamingo.getY() - getY()) <= 30)
+            {
+                //score
+            }
         }
     }
 
