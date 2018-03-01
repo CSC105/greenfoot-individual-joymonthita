@@ -9,7 +9,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class How_to_play_World extends World
 {
     GreenfootImage main = new GreenfootImage("How_to_play/How_to_play.png");
+    GreenfootSound How_to_play_sound = new GreenfootSound("Home_sound.mp3");
     private Back back = new Back();
+    boolean start = true;
+    public boolean end = false;
     /**
      * Constructor for objects of class How_to_play_World.
      * 
@@ -20,9 +23,26 @@ public class How_to_play_World extends World
         super(700, 500, 1); 
         setBackground(main);
         prepare();
+        How_to_play_sound.setVolume(80);
     }
     
     public void prepare(){
         addObject(back, 660, 460);
+    }
+    
+    public void act(){
+        if(start){
+            How_to_play_sound.playLoop();
+            start = false;
+        }
+        if(end == true){
+            stopped();
+        }else{
+            How_to_play_sound.playLoop();
+        }
+    }
+    
+    public void stopped(){
+         How_to_play_sound.stop();
     }
 }

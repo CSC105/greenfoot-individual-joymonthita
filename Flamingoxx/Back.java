@@ -17,6 +17,7 @@ public class Back extends Actor
     {
         // Add your action code here.
         if(Greenfoot.getMouseInfo() != null && Greenfoot.mousePressed(this)){
+            ((How_to_play_World)(getWorld())).stopped();
             Greenfoot.setWorld(new Home());
         }
     }    

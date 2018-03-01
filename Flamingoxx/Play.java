@@ -17,6 +17,7 @@ public class Play extends Actor
     {
         // Add your action code here.
         if(Greenfoot.getMouseInfo() != null && Greenfoot.mousePressed(this)){
+            ((Home)(getWorld())).stopped();
             Greenfoot.setWorld(new MyWorld());
         }
     } 

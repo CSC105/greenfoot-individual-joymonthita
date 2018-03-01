@@ -24,6 +24,9 @@ public class MyWorld extends World
     private int count = 3;
     Score sb = new Score();
     private static int score;
+    GreenfootSound myworld = new GreenfootSound("Home_sound.mp3");
+    boolean start = true;
+    public boolean end = false;
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -33,6 +36,7 @@ public class MyWorld extends World
         setBackground(bg);
         score = 0;
         prepare();
+        myworld.setVolume(67);
     }
 
     /**
@@ -51,18 +55,27 @@ public class MyWorld extends World
     public void act(){
         generateEgg();
         generateBomb();
+        if(start){
+            myworld.playLoop();
+            start = false;
+        }
+        if(end == true){
+            stopped();
+        }else{
+            myworld.playLoop();
+        }
     }
 
     public void generateEgg()
     {
         if(Greenfoot.getRandomNumber(500)<10){
-            if(numberOfObjects() <= 7)
+            if(numberOfObjects() <= 10)
                 addObject(new Egg() , Greenfoot.getRandomNumber(680) + 10, 50);
         }
     }
 
     public void generateBomb(){
-        if(numberOfObjects() <= 5){
+        if(numberOfObjects() <= 8){
             addObject(new Bomb(), Greenfoot.getRandomNumber(680) + 10, 50);
         }
     }
@@ -80,6 +93,7 @@ public class MyWorld extends World
         else if(count == 1){
             heart1.setImage(blankHeart);
             count--;
+            stopped();
             Greenfoot.setWorld(new Game_over());
         }
         else
@@ -88,13 +102,16 @@ public class MyWorld extends World
         }
 
     }
-    
+
     public static void updateScore(int s){
         score += s;
     }
-    
+
     public static String getScore(){
         return score + "";
     }
-    
+
+     public void stopped(){
+         myworld.stop();
+    }
 }

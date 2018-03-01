@@ -90,20 +90,20 @@ public class Flamingo extends Actor
     {
         if(Greenfoot.isKeyDown("shift"))
         {
-            setLocation(getX()+ 9, getY());
+            setLocation(getX()+ 11, getY());
         }
         else
-            setLocation(getX()+ 5, getY());
+            setLocation(getX()+ 7, getY());
     }
 
     public void moveLeft()
     {
         if(Greenfoot.isKeyDown("shift"))
         {
-            setLocation(getX() - 9, getY());
+            setLocation(getX() - 11, getY());
         }
         else
-            setLocation(getX()- 5, getY());
+            setLocation(getX()- 7, getY());
     }
 
     public void animateRight(){

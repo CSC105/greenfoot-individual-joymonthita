@@ -17,6 +17,7 @@ public class Play_again extends Actor
     {
         // Add your action code here.
         if(Greenfoot.getMouseInfo() != null && Greenfoot.mousePressed(this)){
+            ((Game_over)(getWorld())).stopped();
             Greenfoot.setWorld(new MyWorld());
         }
     }    

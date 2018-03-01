@@ -22,10 +22,10 @@ public class Score extends Actor
     public void makeSB(){
         String score = MyWorld.getScore();
         image.clear();
-        image.setColor(new Color(0,0,0,0));
         image.setColor(Color.WHITE);
-        image.drawString("Score: ", 10, 25);
-        image.drawString(score,50,25);
+        image.drawString("Score: ", 10, 35);
+        image.drawString(score,78,35);
+        image.setFont(image.getFont().deriveFont(20f));
         setImage(image);
     }
 }

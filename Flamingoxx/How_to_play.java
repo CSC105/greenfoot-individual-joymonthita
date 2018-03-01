@@ -17,6 +17,7 @@ public class How_to_play extends Actor
     {
         // Add your action code here.
         if(Greenfoot.getMouseInfo() != null && Greenfoot.mousePressed(this)){
+            ((Home)(getWorld())).stopped();
             Greenfoot.setWorld(new How_to_play_World());
         }
     } 
@@ -24,4 +25,5 @@ public class How_to_play extends Actor
     public How_to_play(){
         how_to_play.scale(470,67);
     }
+    
 }
