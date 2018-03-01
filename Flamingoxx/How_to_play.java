@@ -22,6 +22,6 @@ public class How_to_play extends Actor
     } 
     
     public How_to_play(){
-        how_to_play.scale(350,400);
+        how_to_play.scale(470,67);
     }
 }

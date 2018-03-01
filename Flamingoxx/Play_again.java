@@ -22,6 +22,6 @@ public class Play_again extends Actor
     }    
     
     public Play_again(){
-        play_again.scale(350,400);
+        play_again.scale(150,87);
     }
 }

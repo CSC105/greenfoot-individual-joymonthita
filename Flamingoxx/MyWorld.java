@@ -22,6 +22,7 @@ public class MyWorld extends World
     GreenfootImage blankHeart = new GreenfootImage("Heart/Miniheart2.png");
     GreenfootImage bang = new GreenfootImage("Effect/Bang.png");
     private int count = 3;
+    Score score = new Score();
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -42,6 +43,7 @@ public class MyWorld extends World
         addObject(heart1, 40, 40);
         addObject(heart2, 89, 40);
         addObject(heart3, 137, 40);
+        addObject(score, 630, 31);
     }
 
     public void act(){
@@ -76,13 +78,17 @@ public class MyWorld extends World
         else if(count == 1){
             heart1.setImage(blankHeart);
             count--;
-            
+            Greenfoot.setWorld(new Game_over());
         }
         else
         {
 
         }
 
+    }
+    
+    public Score getScore(){
+        return score;
     }
 
 }

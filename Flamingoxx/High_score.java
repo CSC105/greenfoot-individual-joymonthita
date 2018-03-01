@@ -22,6 +22,6 @@ public class High_score extends Actor
     }   
     
     public High_score(){
-        high_score.scale(350,400);
+        high_score.scale(200,90);
     }
 }

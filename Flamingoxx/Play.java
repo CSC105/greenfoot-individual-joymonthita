@@ -22,7 +22,7 @@ public class Play extends Actor
     } 
     
     public Play(){
-        play.scale(350,400);
+        play.scale(150,150);
     }
   
 }

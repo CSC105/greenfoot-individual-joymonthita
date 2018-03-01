@@ -27,10 +27,15 @@ public class Egg extends Actor
         setLocation(getX(), getY() + 3);
         if(isTouching(Flamingo.class))
         {
+            Greenfoot.playSound("Egg_sound.mp3");
             myImage.setTransparency(0);
+            MyWorld world = (MyWorld)getWorld(); 
+            Score score = world.getScore();
+            score.addScore();
+            getWorld().removeObject(this);
         }
 
-        if(getY() >= 490)
+        else if(getY() >= 490)
         {
             getWorld().removeObject(this);
         }

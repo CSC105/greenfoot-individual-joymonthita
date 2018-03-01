@@ -124,9 +124,7 @@ public class Flamingo extends Actor
     }
 
     public void checkHeart(){
-        MyWorld world = (MyWorld)getWorld();
-        //world.removeHeart();
-        
+        MyWorld world = (MyWorld)getWorld();        
     }
     
 
