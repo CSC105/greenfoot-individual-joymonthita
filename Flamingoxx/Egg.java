@@ -9,7 +9,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Egg extends Actor
 {
     GreenfootImage myImage = getImage();
-
     /**
      * Act - do whatever the Egg wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -31,9 +30,8 @@ public class Egg extends Actor
             Egg_sound.setVolume(80);
             Egg_sound.play();
             myImage.setTransparency(0);
-            MyWorld world = (MyWorld)getWorld(); 
-            Score score = world.getScore();
-            score.addScore();
+            int points = 5;
+            MyWorld.updateScore(points);
             getWorld().removeObject(this);
         }
 

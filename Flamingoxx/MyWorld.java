@@ -22,7 +22,8 @@ public class MyWorld extends World
     GreenfootImage blankHeart = new GreenfootImage("Heart/Miniheart2.png");
     GreenfootImage bang = new GreenfootImage("Effect/Bang.png");
     private int count = 3;
-    Score score = new Score();
+    Score sb = new Score();
+    private static int score;
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -30,6 +31,7 @@ public class MyWorld extends World
         GreenfootImage bg = new GreenfootImage("Background/Forest.png");
         bg.scale(700,500);
         setBackground(bg);
+        score = 0;
         prepare();
     }
 
@@ -43,7 +45,7 @@ public class MyWorld extends World
         addObject(heart1, 40, 40);
         addObject(heart2, 89, 40);
         addObject(heart3, 137, 40);
-        addObject(score, 630, 31);
+        addObject(sb, 630, 31);
     }
 
     public void act(){
@@ -87,8 +89,12 @@ public class MyWorld extends World
 
     }
     
-    public Score getScore(){
-        return score;
+    public static void updateScore(int s){
+        score += s;
     }
-
+    
+    public static String getScore(){
+        return score + "";
+    }
+    
 }

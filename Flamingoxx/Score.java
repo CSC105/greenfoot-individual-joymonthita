@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Score extends Actor
 {
-    int score = 0;
+    GreenfootImage image = new GreenfootImage(100, 50);
     /**
      * Act - do whatever the Score wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -16,10 +16,16 @@ public class Score extends Actor
     public void act() 
     {
         // Add your action code here.
-        setImage(new GreenfootImage("Score: " + score, 28, Color.WHITE, new Color(0,0,0,0)));
+        makeSB();
     }    
     
-    public void addScore(){
-        score+=5;
+    public void makeSB(){
+        String score = MyWorld.getScore();
+        image.clear();
+        image.setColor(new Color(0,0,0,0));
+        image.setColor(Color.WHITE);
+        image.drawString("Score: ", 10, 25);
+        image.drawString(score,50,25);
+        setImage(image);
     }
 }
