@@ -19,7 +19,7 @@ public class Bomb extends Actor
     {
         checkTouch();
         moveDown();
-        
+
     }  
 
     public Bomb(){
@@ -34,15 +34,13 @@ public class Bomb extends Actor
         {
             bang.setTransparency(0);
         }
-        
+
         if(getY() >= 490)
         {
-           getWorld().removeObject(this);
+            getWorld().removeObject(this);
         }
-        
-        
+
     }
-    
     public void checkTouch(){
         MyWorld world = (MyWorld)getWorld();
         Actor flamingo = (Actor)world.getObjects(Flamingo.class).get(0);
@@ -52,11 +50,13 @@ public class Bomb extends Actor
             {
                 this.setImage(bang);
                 banged = true;
+                GreenfootSound Bomb_sound = new GreenfootSound("Bomb_sound.mp3");
+                Bomb_sound.setVolume(43);
+                Bomb_sound.play();
                 world.removeHeart();
             }
         }
     }
-    
-    
+
 
 }

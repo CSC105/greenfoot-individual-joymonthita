@@ -27,7 +27,9 @@ public class Egg extends Actor
         setLocation(getX(), getY() + 3);
         if(isTouching(Flamingo.class))
         {
-            Greenfoot.playSound("Egg_sound.mp3");
+            GreenfootSound Egg_sound = new GreenfootSound("Egg_sound.mp3");
+            Egg_sound.setVolume(80);
+            Egg_sound.play();
             myImage.setTransparency(0);
             MyWorld world = (MyWorld)getWorld(); 
             Score score = world.getScore();
@@ -38,18 +40,6 @@ public class Egg extends Actor
         else if(getY() >= 490)
         {
             getWorld().removeObject(this);
-        }
-    }
-
-    public void checkTouch(){
-        MyWorld world = (MyWorld)getWorld();
-        Actor flamingo = (Actor)world.getObjects(Flamingo.class).get(0);
-        if(Math.abs(flamingo.getX() - getX()) <= 30)
-        {
-            if(Math.abs(flamingo.getY() - getY()) <= 30)
-            {
-                //score
-            }
         }
     }
 
