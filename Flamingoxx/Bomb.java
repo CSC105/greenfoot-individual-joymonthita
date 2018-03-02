@@ -19,7 +19,6 @@ public class Bomb extends Actor
     {
         checkTouch();
         moveDown();
-
     }  
 
     public Bomb(){
@@ -41,6 +40,7 @@ public class Bomb extends Actor
         }
 
     }
+    
     public void checkTouch(){
         MyWorld world = (MyWorld)getWorld();
         Actor flamingo = (Actor)world.getObjects(Flamingo.class).get(0);
@@ -57,6 +57,5 @@ public class Bomb extends Actor
             }
         }
     }
-
 
 }

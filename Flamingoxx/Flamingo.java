@@ -19,12 +19,8 @@ public class Flamingo extends Actor
     private boolean isRight;
     private boolean isWalking;
     private int count = 0;
-    
-
-    
     public Flamingo()
     {
-       
         for(int i = 1; i <= 36; ++i)
         {
             animationRight[i-1] = new GreenfootImage("FlamingoRight/Flamingo"+ i +".png");
@@ -40,7 +36,6 @@ public class Flamingo extends Actor
     public void act() 
     {
         checkKey();
-        
         checkHeart();
     }
 
@@ -83,7 +78,6 @@ public class Flamingo extends Actor
             }
         }
 
-        
     }
 
     public void moveRight()
@@ -127,6 +121,4 @@ public class Flamingo extends Actor
         MyWorld world = (MyWorld)getWorld();        
     }
     
-
-
 }
