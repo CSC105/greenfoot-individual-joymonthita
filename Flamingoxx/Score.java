@@ -23,8 +23,8 @@ public class Score extends Actor
         String score = MyWorld.getScore();
         image.clear();
         image.setColor(Color.WHITE);
-        image.drawString("Score: ", 10, 35);
-        image.drawString(score,78,35);
+        image.drawString("Score: ", 1, 30);
+        image.drawString(score,65,31);
         image.setFont(image.getFont().deriveFont(20f));
         setImage(image);
     }

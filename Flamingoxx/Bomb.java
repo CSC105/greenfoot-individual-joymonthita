@@ -44,9 +44,9 @@ public class Bomb extends Actor
     public void checkTouch(){
         MyWorld world = (MyWorld)getWorld();
         Actor flamingo = (Actor)world.getObjects(Flamingo.class).get(0);
-        if(Math.abs(flamingo.getX() - getX()) <= 40 && !banged)
+        if(Math.abs(flamingo.getX() - getX()) <= 50 && !banged)
         {
-            if(Math.abs(flamingo.getY() - getY()) <= 40)
+            if(Math.abs(flamingo.getY() - getY()) <= 50)
             {
                 this.setImage(bang);
                 banged = true;

@@ -14,6 +14,7 @@ public class MyWorld extends World
      * 
      */
     private Egg egg;
+    private Banana banana;
     private Bomb bomb;
     Flamingo flamingo = new Flamingo();
     Heart heart1 = new Heart();
@@ -54,6 +55,7 @@ public class MyWorld extends World
 
     public void act(){
         generateEgg();
+        generateBanana();
         generateBomb();
         if(start){
             myworld.playLoop();
@@ -68,14 +70,19 @@ public class MyWorld extends World
 
     public void generateEgg()
     {
-        if(Greenfoot.getRandomNumber(500)<10){
-            if(numberOfObjects() <= 10)
-                addObject(new Egg() , Greenfoot.getRandomNumber(680) + 10, 50);
+        if(Greenfoot.getRandomNumber(30)<1){
+            addObject(new Egg() , Greenfoot.getRandomNumber(680) + 10, 50);
+        }
+    }
+
+    public void generateBanana(){
+        if(Greenfoot.getRandomNumber(140)<1){
+            addObject(new Banana() , Greenfoot.getRandomNumber(680) + 10, 50);
         }
     }
 
     public void generateBomb(){
-        if(numberOfObjects() <= 8){
+        if(Greenfoot.getRandomNumber(50)<1){
             addObject(new Bomb(), Greenfoot.getRandomNumber(680) + 10, 50);
         }
     }
@@ -111,7 +118,7 @@ public class MyWorld extends World
         return score + "";
     }
 
-     public void stopped(){
-         myworld.stop();
+    public void stopped(){
+        myworld.stop();
     }
 }
